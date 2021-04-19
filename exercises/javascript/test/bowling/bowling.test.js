@@ -20,4 +20,12 @@ describe("Bowling tests", () => {
 
     expect(score).toBe(20);
   });
+
+  test("Should have correct scoring for a spare in the first frame", () => {
+    const rolls = [5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    const score = bowlingGame.bowl(rolls);
+
+    expect(score).toBe(12);
+  });
 });
