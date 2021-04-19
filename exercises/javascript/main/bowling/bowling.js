@@ -2,7 +2,7 @@ class BowlingGame {
   constructor() {}
 
   bowl(rolls) {
-    return 0;
+    return rolls.reduce((acc, score) => acc + score);
   }
 }
 
