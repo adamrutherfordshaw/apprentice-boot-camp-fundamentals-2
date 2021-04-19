@@ -4,18 +4,14 @@ class BowlingGame {
   bowl(rolls) {
     let score = 0;
     for (let roll = 0; roll < rolls.length; roll += 2) {
-      let firstRoll = roll;
-      let secondRoll = roll + 1;
-      let thirdRoll = roll + 2;
+      const firstScore = rolls[roll + 0];
+      const secondScore = rolls[roll + 1];
 
-      let firstScore = rolls[firstRoll];
-      let secondScore = rolls[secondRoll];
-      let thirdScore = rolls[thirdRoll];
+      score += firstScore + secondScore;
 
       if (firstScore + secondScore === 10) {
-        score += 10 + thirdScore;
-      } else {
-        score += firstScore + secondScore;
+        const thirdScore = rolls[roll + 2];
+        score += thirdScore;
       }
     }
     return score;
