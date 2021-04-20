@@ -1,4 +1,4 @@
-const { Receipt } = require('./receipt.js');
+const { Receipt } = require("./receipt.js");
 
 class Checkout {
   constructor() {
@@ -9,22 +9,22 @@ class Checkout {
   }
 
   scan(sku) {
-    if ('A' === sku) {
+    if ("A" === sku) {
       this.total += 50;
-      if (++this.numberOfA % 3 === 0) {
-        this.total -= 20;
+      if (++this.numberOfA % 5 === 0) {
+        this.total -= 30;
       }
       this.receipt.scannedA();
-    } else if ('B' === sku) {
+    } else if ("B" === sku) {
       this.total += 30;
       if (++this.numberOfB % 2 === 0) {
         this.total -= 15;
       }
       this.receipt.scannedB();
-    } else if ('C' === sku) {
+    } else if ("C" === sku) {
       this.total += 20;
       this.receipt.scannedC();
-    } else if ('D' === sku) {
+    } else if ("D" === sku) {
       this.total += 15;
       this.receipt.scannedD();
     }
@@ -37,8 +37,8 @@ class Checkout {
   getReceipt() {
     return this.receipt.getText();
   }
-};
+}
 
 module.exports = {
-  Checkout
+  Checkout,
 };
