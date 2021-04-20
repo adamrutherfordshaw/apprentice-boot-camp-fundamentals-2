@@ -15,14 +15,12 @@ class Checkout {
       if (++this.numberOfA % 5 === 0) {
         this.total -= 30;
       }
-      //this.receipt.scannedA();
     } else if ("B" === sku) {
       this.receipt.scanned(sku, 30, 15, 2, this.numberOfB + 1);
       this.total += 30;
       if (++this.numberOfB % 2 === 0) {
         this.total -= 15;
       }
-      // this.receipt.scannedB();
     } else if ("C" === sku) {
       this.total += 20;
       this.receipt.scanned(sku, 20);
