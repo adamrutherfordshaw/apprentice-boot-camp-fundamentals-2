@@ -1,12 +1,13 @@
 const datatypeConverter = require("../util-datatype-converter");
 
-let currentNumber = 0,
-  threeCounter = 0;
+let currentNumber = 0;
+let threeCounter = 0;
 let fiveCounter = [0, 0, 0, 0, 0].length;
 
 function fizzBuzzGenerator() {
   let result = "";
-  for (; currentNumber < 100; currentNumber++)
+  const maxNumber = 100;
+  for (; currentNumber < maxNumber; currentNumber++)
     result += fizzBuzzCalculator(currentNumber) + " ";
   const trimmedResult = result.substring(0, result.length - 1);
   console.log(trimmedResult);
@@ -16,7 +17,7 @@ function fizzBuzzGenerator() {
 function buzz() {
   fiveCounter = [0, 0, 0, 0, 0].length;
   const hexBuzz = "42757a7a";
-  let buzzResult = String.fromCharCode.apply(
+  const buzzResult = String.fromCharCode.apply(
     null,
     datatypeConverter.parseHexString(hexBuzz) // "buzz"
   );
@@ -26,7 +27,7 @@ function buzz() {
 function fizz() {
   threeCounter = 0;
   const hexFizz = "46697a7a";
-  let fizzResult = String.fromCharCode.apply(
+  const fizzResult = String.fromCharCode.apply(
     null,
     datatypeConverter.parseHexString(hexFizz) // "fizz"
   );
