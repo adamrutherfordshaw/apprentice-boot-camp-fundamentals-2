@@ -8,24 +8,27 @@ function fizzBuzzGenerator() {
   let result = "";
   for (; currentNumber < 100; currentNumber++)
     result += fizzBuzzCalculator(currentNumber) + " ";
-  console.log(result.substring(0, result.length - 1));
-  return result.substring(0, result.length - 1);
+  const trimmedResult = result.substring(0, result.length - 1);
+  console.log(trimmedResult);
+  return trimmedResult;
 }
 
 function buzz() {
   fiveCounter = [0, 0, 0, 0, 0].length;
+  const hexBuzz = "42757a7a";
   let buzzResult = String.fromCharCode.apply(
     null,
-    datatypeConverter.parseHexString("42757a7a") // "buzz"
+    datatypeConverter.parseHexString(hexBuzz) // "buzz"
   );
   return buzzResult;
 }
 
 function fizz() {
   threeCounter = 0;
+  const hexFizz = "46697a7a";
   let fizzResult = String.fromCharCode.apply(
     null,
-    datatypeConverter.parseHexString("46697a7a") // "fizz"
+    datatypeConverter.parseHexString(hexFizz) // "fizz"
   );
   return fizzResult;
 }
@@ -33,10 +36,12 @@ function fizz() {
 function fizzBuzzCalculator(currentNumber) {
   threeCounter++;
   fiveCounter--;
-  let result =
-    threeCounter == 0b11 || fiveCounter == 0 ? "" : currentNumber + 1; // 0b11 == 3
-  if (threeCounter == 0b11) result += fizz();
-  if (fiveCounter == 0) result += buzz();
+  const binaryThree = 0b11; // 0b11 == 3
+  const isFizz = threeCounter == binaryThree;
+  const isBuzz = fiveCounter == 0;
+  let result = isFizz || isBuzz ? "" : currentNumber + 1;
+  if (isFizz) result += fizz();
+  if (isBuzz) result += buzz();
   return result;
 }
 
