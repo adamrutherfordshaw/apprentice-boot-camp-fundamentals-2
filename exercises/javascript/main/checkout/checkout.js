@@ -10,23 +10,25 @@ class Checkout {
 
   scan(sku) {
     if ("A" === sku) {
+      this.receipt.scanned(sku, 50, 30, 5, this.numberOfA + 1);
       this.total += 50;
       if (++this.numberOfA % 5 === 0) {
         this.total -= 30;
       }
-      this.receipt.scannedA();
+      //this.receipt.scannedA();
     } else if ("B" === sku) {
+      this.receipt.scanned(sku, 30, 15, 2, this.numberOfB + 1);
       this.total += 30;
       if (++this.numberOfB % 2 === 0) {
         this.total -= 15;
       }
-      this.receipt.scannedB();
+      // this.receipt.scannedB();
     } else if ("C" === sku) {
       this.total += 20;
-      this.receipt.scannedC();
+      this.receipt.scanned(sku, 20);
     } else if ("D" === sku) {
       this.total += 15;
-      this.receipt.scannedD();
+      this.receipt.scanned(sku, 15);
     }
   }
 
