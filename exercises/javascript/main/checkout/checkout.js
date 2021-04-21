@@ -31,7 +31,7 @@ class Checkout {
   }
 
   getTotal() {
-    return this.total;
+    return this.receipt.total;
   }
 
   getReceipt() {
